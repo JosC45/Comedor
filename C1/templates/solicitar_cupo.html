@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title%}
+    Solicitar Cupo
+{% endblock %}
+
+{% block content%}
+    <h2>Comedor</h2>
+    <label>Semana </label>
+    {% if cantidadd %}
+    <form method="POST" action="{% url 'save_detalle'}">
+    {% csrf_token %}
+    {% endif %}
+    {% csrf_token %}
+    {{ formdia.as_p }}
+    <form method="POST" action="{% url 'buscar' %}">
+        {% csrf_token %}
+    {{formcupo.as_p}}
+        <button type="submit">Buscar</button>
+    </form>
+        {% for cantidades in cantidadd%}
+        <p>Cupos: <input type="text" value="{{ cantidades.cantidad }}" readonly></p>
+        {% endfor %}
+
+    <button type="submit" style="display:block">Reservar<button>  
+    
+        
+</form>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Semana</th>
+                    <th>Dia</th>
+                    <th>Tipo</th>
+                    <th>Menu</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for pedido in pedidos %}
+            <tr>
+                <td>{{ pedido.id_detalle_menu }}</td>
+                <td>{{ pedido.codigo }}</td>
+                <td>{{ pedido.codigo.nombres}}</td>
+                <td>{{ pedido.id_menu.id_semana}}</td>
+                <td>{{ pedido.id_menu.id_dia.dia }}</td>
+                <td>{{ pedido.id_menu.id_tipo.tipo}}</td>
+                <td>{{ pedido.id_menu.comida }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}

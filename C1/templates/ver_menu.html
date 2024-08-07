@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h3>Menu de la semana {{ desayuno.0.id_semana }}
+    <table>
+        <!-- Cabecera de la tabla -->
+        <thead>
+            <tr>
+                <th>TIPO</th>
+                <!-- Asumiendo que dia_s es una lista de objetos que tienen un atributo dia -->
+                {% for dias in dia_s %}
+                    <th>{{ dias.dia }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <!-- Cuerpo de la tabla -->
+        <tbody>
+            <!-- Asumiendo que desayuno es una lista de objetos que tienen atributos id_dia, bebida y comida -->
+                <tr>
+                <tr>
+                    <td>{{ desayuno.0.id_tipo.tipo |upper}}</td>
+                    {% for desa in desayuno %}
+                    <td>{{ desa.bebida }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>{{ desayuno.0.id_tipo.tipo | upper }}</td>
+                    {% for desa in desayuno %}
+                    <td>{{ desa.comida }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>{{ almuerzo.0.id_tipo.tipo | upper}}</td>
+                    {% for almu in almuerzo %}
+                    <td>{{almu.bebida}}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>{{ almuerzo.0.id_tipo.tipo | upper}}</td>
+                    {% for almu in almuerzo %}
+                    <td>{{almu.comida}}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>{{ lonche.0.id_tipo.tipo | upper}}</td>
+                    {% for lon in lonche %}
+                    <td>{{lon.bebida}}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>{{ lonche.0.id_tipo.tipo | upper}}</td>
+                    {% for lon in lonche %}
+                    <td>{{lon.comida}}</td>
+                    {% endfor %}
+                </tr>
+            
+        </tbody>
+    </table>
+
+{% endblock %}

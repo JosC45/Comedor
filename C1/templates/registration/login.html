@@ -1,0 +1,22 @@
+<!Doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        {% load static%}
+        <title>
+        SIGU UNTELS
+        </title>
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    </head>
+    <body>
+        <form  method="post" action="">
+        <h1>PORTAL ALUMNO UNTELS</h1>
+        {% csrf_token %}
+        <label>Codigo:</label>
+        <input type="text" name="username" placeholder="Codigo">
+        <label>Contraseña:</label>
+        <input type="password" name="password" placeholder="Contraseña">
+        <button type="submit">INGRESAR</button>
+        </form>
+    </body>
+    

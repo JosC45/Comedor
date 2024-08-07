@@ -1,0 +1,35 @@
+<DOCTYPE html>
+<html>
+<head>
+    {% load static%}
+    <meta charset="utf-8">
+    <title>{% block title%}
+        {% endblock %}
+        |UNTELS</title>
+    <link rel="stylesheet" href="{% static 'css/style_main.css' %}">
+</head>
+<body>
+    <header>
+        <h1 id="tit"> SIGU UNTELS</h1><p class="code">{{ user.username }}</p><button><a href="{% url 'exit' %}">SALIR</button>
+    </header>
+    <aside>
+        <ul>
+            <li><a href={% url 'inicio' %}>INICIO</a></li>
+            <li><a href={% url 'mis_cursos' %}>MIS CURSOS</a></li>
+            
+            <li><a>BIENESTAR</a></li>
+            <ul class="sublista">
+                <li class="subelemento"><a href="{% url 'solicitar_cupo' %}">Cupo</a></li>
+                <li class="subelemento"><a href="{% url 'vista_menu' %}">Menu</a></li>
+            </ul>
+        </ul>
+    </aside>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>Untels&copy 2024</p>
+    </footer>
+</body>
+</html>

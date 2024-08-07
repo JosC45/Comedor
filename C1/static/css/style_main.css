@@ -1,0 +1,106 @@
+aside{
+    width:350px;
+    height:600px;
+    padding:70px 10px;
+    background-color: hsl(220,100%,40%);
+    margin: 0px;
+}
+ul{
+    padding-left: 10px;
+}
+
+
+li{
+    list-style: none;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px 10px;
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+}
+li:hover{
+    background-color: hsl(220,100%,50%);
+    transition: ease ;
+}
+.subelemento{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 10px;
+}
+footer{
+    text-align: center;
+    background-color:hsl(220,100%,30%) ;
+    height: 50px;
+    margin: 0;
+}
+footer p{
+    padding: 20px;
+    margin:0px;
+}
+header{
+    background-color:black;
+}
+#tit, .code, button{
+    display: inline-block;
+    color:white
+}
+button{
+    background-color: gray;
+}
+#tit{
+    margin-left: 40%;
+}
+.code{
+    margin-right:40px ;
+    margin-left: 350px;
+    width: 100px;
+    text-align: right;
+}
+
+main,aside{
+    display:inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+main{
+    background: url("https://assets.mubicdn.net/images/film/391/image-w1280.jpg?1617995748");
+    /* position: relative;
+    top:-86.4%;
+    left:21.6%;
+    height:86%; */
+    width:979px;
+    height: 600px;
+    margin: 0;
+}
+td{
+    padding: 5px 4px;
+    border:2px solid black;
+}
+th{
+    padding: 5px 4px;
+    border:2px solid black;
+}
