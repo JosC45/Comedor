@@ -5,26 +5,57 @@
 {% endblock %}
 
 {% block content%}
+    {% comment %} <h2>Comedor</h2>
+    <label>Semana </label>
+    <form method="POST" action="{% url 'buscar' %}">
+    {% for diad in diaa %}
+        <p>{{diad.dia}}</p>
+    {% endfor %}
+    {% csrf_token %}
+    {{formcupo.as_p}}
+        <button type="submit">Buscar</button> {% endcomment %}
+{%if detalle %}
+<input type="text" value="{{detalle.codigo_id}}" readonly><br>
+<input type="text" value="{{detalle.id_menu_id}}" readonly>
+<p>Registro agregado con exito</p>
+<form method='POST' action="{% url 'cancelar' %}">
+{% csrf_token %}
+<button type="submit">Cancelar</button>
+{% elif mensaje %}
+</form>
+{% else %}
+    {% if cantidadd%}
+    <form method="POST" action="{% url 'save_detalle' %}">
+    {% csrf_token%}
+    <input type="text" value="{% for diad in diaa %}{{diad.dia}}{% endfor%}" name="day" readonly><br>
+    <input type="text" value="{% for cantidades in cantidadd %}{{cantidades.tipo}}{% endfor%}" name="hour" readonly>
+    {% for diad in diaa %}
+        <p style="color:white">Cupos para el {{diad.dia}}
+            {% for cantidades in cantidadd %}
+                en el horario del {{ cantidades.tipo }}:
+            {% endfor%}
+        </p>
+    {% endfor %}
+    {% for cantidades in cantidadd%}
+    <p>Cupos: <input type="text" value="{{ cantidades.cantidad }}" readonly></p>
+    {% endfor %}
+    <button type="submit">Agregar</button>
+    {% else %}
     <h2>Comedor</h2>
     <label>Semana </label>
-    {% if cantidadd %}
-    <form method="POST" action="{% url 'save_detalle'}">
-    {% csrf_token %}
-    {% endif %}
-    {% csrf_token %}
-    {{ formdia.as_p }}
     <form method="POST" action="{% url 'buscar' %}">
-        {% csrf_token %}
+    {% for diad in diaa %}
+        <p>{{diad.dia}}</p>
+    {% endfor %}
+    {% csrf_token %}
     {{formcupo.as_p}}
         <button type="submit">Buscar</button>
-    </form>
-        {% for cantidades in cantidadd%}
-        <p>Cupos: <input type="text" value="{{ cantidades.cantidad }}" readonly></p>
-        {% endfor %}
-
-    <button type="submit" style="display:block">Reservar<button>  
-    
-        
+    {% endif %}
+{% endif %}
+{% if mensaje%}
+        <p>{{mensaje}}</p>
+{% endif %}
+    {% comment %} <button type="submit" style="display:block">Reservar<button>          {% endcomment %}
 </form>
         <table>
             <thead>

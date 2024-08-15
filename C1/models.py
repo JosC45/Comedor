@@ -54,5 +54,5 @@ class detalle_menu(models.Model):
         self.value=False
         self.save()
         return self.value
- 
+
 
